@@ -15,7 +15,6 @@ public class Main {
     public static CommandManager getCommandManager() {
         return commandManager;
     }
-    public static void setCommandManager(CommandManager commandManager) { Main.commandManager = commandManager; }
     public static DatabaseManager getDatabaseManager() {
         return databaseManager;
     }
