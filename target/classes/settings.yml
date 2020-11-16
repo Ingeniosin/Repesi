@@ -1,0 +1,14 @@
+#----------------------------------------#
+#                                        #
+#                Repesi                  #
+#         Created by Juanelpro19         #
+#                                        #
+#        Please respect the work         #
+#     and not distribute illegally.      #
+#           It is appreciated.           #
+#                  -                     #
+#                                        #
+#----------------------------------------#
+Databases:
+  Redis: true
+  SQL: true
