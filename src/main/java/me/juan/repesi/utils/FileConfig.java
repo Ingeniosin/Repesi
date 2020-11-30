@@ -18,7 +18,7 @@ public class FileConfig {
         if (!path.equals("")) {
             path = path + "/";
         }
-        path = "Repesi/"+path;
+        path = "Repesi/" + path;
         InputStream resource = getClass().getResourceAsStream("/" + path + fileName);
         String current = new java.io.File(".").getCanonicalPath();
         new File(current + "/" + path).mkdirs();

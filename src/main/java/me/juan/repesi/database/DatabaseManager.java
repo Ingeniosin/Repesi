@@ -26,7 +26,19 @@ public class DatabaseManager {
         Main.lines();
     }
 
-    public void loadRedis(){
+    public static void RedisMSG(String msg) {
+        Main.log("[redis] " + msg);
+    }
+
+    public static void log(String msg) {
+        Main.log("[database] " + msg);
+    }
+
+    public static void SQLMSG(String msg) {
+        Main.log("[mysql] " + msg);
+    }
+
+    public void loadRedis() {
         FileConfig mainConfig = Main.getConfigurationManager().getMainConfiguration();
         ConfigCursor mainCursor = new ConfigCursor(mainConfig.getConfig(), "Databases");
         if (mainCursor.getBoolean("Redis")) {
@@ -36,7 +48,8 @@ public class DatabaseManager {
             RedisMSG("Redis disabled!");
         }
     }
-    public void loadSql(){
+
+    public void loadSql() {
         FileConfig mainConfig = Main.getConfigurationManager().getMainConfiguration();
         ConfigCursor mainCursor = new ConfigCursor(mainConfig.getConfig(), "Databases");
         if (mainCursor.getBoolean("SQL")) {
@@ -45,14 +58,5 @@ public class DatabaseManager {
         } else {
             SQLMSG("MySQL disabled!");
         }
-    }
-    public static void RedisMSG(String msg) {
-        Main.log("[redis] " + msg);
-    }
-    public static void log(String msg) {
-        Main.log("[database] " + msg);
-    }
-    public static void SQLMSG(String msg) {
-        Main.log("[mysql] " + msg);
     }
 }

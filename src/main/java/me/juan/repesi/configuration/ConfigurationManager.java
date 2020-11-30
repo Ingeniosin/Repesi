@@ -21,17 +21,20 @@ public class ConfigurationManager {
         log("Configuration manager loaded!");
     }
 
+    public static void log(String msg) {
+        Main.log("[configuration] " + msg);
+    }
+
     public void loadMain() throws IOException {
         mainConfiguration = new FileConfig("settings.yml", "");
     }
+
     public void loadRedis() throws IOException {
         redisConfiguration = new FileConfig("credentials.yml", "redis");
     }
+
     public void loadSql() throws IOException {
         sqlConfiguration = new FileConfig("credentials.yml", "sql");
 
-    }
-    public static void log(String msg) {
-        Main.log("[configuration] " + msg);
     }
 }

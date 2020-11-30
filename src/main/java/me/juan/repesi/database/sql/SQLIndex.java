@@ -18,17 +18,17 @@ public class SQLIndex {
     }
 
 
-    public boolean keyExist(String keyS){
+    public boolean keyExist(String keyS) {
         ConfigCursor cursor = new ConfigCursor(Main.getConfigurationManager().getSqlConfiguration().getConfig(), "credentials");
         for (String key : cursor.getKeys()) {
-            if (keyS.equals(key)){
+            if (keyS.equals(key)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void loadDatabase(String key){
+    public void loadDatabase(String key) {
         ConfigCursor cursor = new ConfigCursor(Main.getConfigurationManager().getSqlConfiguration().getConfig(), "credentials");
         cursor.setPath("credentials." + key);
         databases.put(key, new SQLDatabase(
