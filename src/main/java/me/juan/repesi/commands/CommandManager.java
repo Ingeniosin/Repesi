@@ -20,7 +20,7 @@ public class CommandManager {
         Main.lines();
     }
 
-    private void initEssentials(){
+    private void initEssentials() {
         new EndCMD();
         new ReloadCMD();
     }
@@ -28,7 +28,6 @@ public class CommandManager {
     public void log(String msg) {
         Main.log("[commands] " + msg);
     }
-
 
 
     public void CommandManager() {
@@ -39,7 +38,7 @@ public class CommandManager {
                     String command = scanner.nextLine();
                     String[] args = command.split(" ");
                     boolean found = false;
-                    for (Command cmd : Command.getCommandList()){
+                    for (Command cmd : Command.getCommandList()) {
                         if (cmd.getCmd().equalsIgnoreCase(args[0])) {
                             found = true;
                             Main.space();
@@ -48,16 +47,17 @@ public class CommandManager {
                             break;
                         }
                     }
-                    if (args[0].equalsIgnoreCase("help")){
+                    if (args[0].equalsIgnoreCase("help")) {
                         found = true;
                         log("Commands avaliable:");
                         log(" ");
-                        for (Command cmd : Command.getCommandList()){
-                            log("  *  "+cmd.getCmd());
+                        for (Command cmd : Command.getCommandList()) {
+                            log("  *  " + cmd.getCmd());
                         }
                     }
-                    if (!found)  log("Command not found. Use help");
-                } catch (NoSuchElementException ignored){}
+                    if (!found) log("Command not found. Use help");
+                } catch (NoSuchElementException ignored) {
+                }
             }
         }).start();
 

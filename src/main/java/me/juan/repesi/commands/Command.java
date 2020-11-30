@@ -14,13 +14,13 @@ public abstract class Command {
 
     @Getter
     private static List<Command> commandList = new ArrayList<>();
-    @Getter
-    private String cmd;
     public DatabaseManager databaseManager = Main.getDatabaseManager();
     public RedisIndex redisIndex = databaseManager.getRedisIndex();
     public SQLIndex sqlIndex = databaseManager.getSqlIndex();
     public CommandManager commandManager = Main.getCommandManager();
     public ConfigurationManager configurationManager = Main.getConfigurationManager();
+    @Getter
+    private String cmd;
 
     public Command(String cmd) {
         this.cmd = cmd;
@@ -28,8 +28,8 @@ public abstract class Command {
 
     }
 
-    public void log(String msg){
-        Main.log("["+cmd+"] " + msg);
+    public void log(String msg) {
+        Main.log("[" + cmd + "] " + msg);
     }
 
     public abstract void run(String[] args);

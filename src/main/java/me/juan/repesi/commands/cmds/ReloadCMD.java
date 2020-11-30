@@ -11,7 +11,7 @@ public class ReloadCMD extends Command {
 
     @Override
     public void run(String[] args) {
-        if (args.length <= 1 || args[1].equalsIgnoreCase("help")){
+        if (args.length <= 1 || args[1].equalsIgnoreCase("help")) {
             help();
         } else {
             String database = args[1].toLowerCase();
@@ -23,7 +23,7 @@ public class ReloadCMD extends Command {
                     e.printStackTrace();
                 }
 
-                if (args.length == 2){
+                if (args.length == 2) {
                     log("Refreshing all sql databases!");
                     databaseManager.loadSql();
                 } else {
@@ -34,7 +34,7 @@ public class ReloadCMD extends Command {
                     }
                     log("Database not found, failed.");
                 }
-            } else if (database.equals("redis")){
+            } else if (database.equals("redis")) {
 
                 try {
                     configurationManager.loadRedis();
@@ -42,24 +42,24 @@ public class ReloadCMD extends Command {
                     e.printStackTrace();
                 }
 
-                if (args.length == 2){
+                if (args.length == 2) {
                     log("Refreshing all redis databases!");
                     databaseManager.loadRedis();
                 } else {
                     if (redisIndex.keyExist(args[2])) {
-                        log("Database '"+args[2]+"' found, loading...");
+                        log("Database '" + args[2] + "' found, loading...");
                         redisIndex.loadDatabase(args[2]);
                         return;
                     }
                     log("Database not found, failed.");
                 }
             } else {
-                log("Database type '"+args[1]+"' not found.");
+                log("Database type '" + args[1] + "' not found.");
             }
         }
     }
 
-    private void help(){
+    private void help() {
         log("Reload commands: ");
         log("  *  reload all");
         log("  *  reload redis [database]");

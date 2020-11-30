@@ -18,13 +18,10 @@ public class FileConfig {
         if (!path.equals("")) {
             path = path + "/";
         }
-        path = "Repesi/"+path;
+        path = "Repesi/" + path;
         InputStream resource = getClass().getResourceAsStream("/" + path + fileName);
-
         String current = new java.io.File(".").getCanonicalPath();
-
         new File(current + "/" + path).mkdirs();
-
         this.file = new File(current + "/" + path, fileName);
         if (!this.file.exists()) {
             if (resource == null) {
@@ -37,7 +34,7 @@ public class FileConfig {
             } else {
                 try {
                     this.file.createNewFile();
-                    copyToInputStream(resource, fileName, current + "/" + path);
+                    copyFromInputStream(resource, fileName, current + "/" + path);
                     ConfigurationManager.log("Sucess to copy new file " + path + fileName);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -51,7 +48,7 @@ public class FileConfig {
     }
 
 
-    public void copyToInputStream(InputStream file, String name, String path) throws IOException {
+    public void copyFromInputStream(InputStream file, String name, String path) throws IOException {
         OutputStream outStream = new FileOutputStream(new File(path, name));
         byte[] buffer = new byte[8 * 1024];
         int bytesRead;
